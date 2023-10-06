@@ -1,0 +1,29 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>res/images/quit.png</file>
+        <file>res/images/current_time.png</file>
+        <file>res/images/next.png</file>
+        <file>res/images/pause.png</file>
+        <file>res/images/play.png</file>
+        <file>res/images/previous.png</file>
+        <file>PlanetaryMistral.pro</file>
+        <file>qml.qrc</file>
+        <file>res/images/atmosphere.png</file>
+        <file>res/images/azimuth_grid.png</file>
+        <file>res/images/cardinal_directions.png</file>
+        <file>res/images/constellation_name.png</file>
+        <file>res/images/constellations.png</file>
+        <file>res/images/deep_space.png</file>
+        <file>res/images/equatorial_grid.png</file>
+        <file>res/images/exoplanets.png</file>
+        <file>res/images/full_screen.png</file>
+        <file>res/images/landscape.png</file>
+        <file>res/images/meteor_showers.png</file>
+        <file>res/images/nightvision.png</file>
+        <file>res/images/planets.png</file>
+        <file>res/images/satellite.png</file>
+        <file>MainMenuForm.ui.qml</file>
+        <file>MainForm.ui.qml</file>
+    </qresource>
+</RCC>
