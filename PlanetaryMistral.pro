@@ -1,7 +1,7 @@
 TEMPLATE = app
 
 QT += qml quick
-CONFIG += c++11
+CONFIG += c++1z
 
 SOURCES += main.cpp \
     data/system_status.cpp \

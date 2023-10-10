@@ -5,6 +5,10 @@
 #include "system_time.h"
 #include "system_view.h"
 
+#include "domain/json.hpp"
+
+using json = nlohmann::json;
+
 namespace planetary_mistral {
     namespace data {
         struct system_status {
@@ -12,6 +16,15 @@ namespace planetary_mistral {
             QString selection_info;
             system_time time;
             system_view view;
+
+            static system_status from_json(json& obj) {
+                return system_status(
+                        system_location::from_json(obj),
+                        obj["selectioninfo"].get<std::u16string>(),
+                        system_time::from_json(obj),
+                        system_view::from_json(obj)
+                );
+            }
 
             system_status(
                     const system_location& location,

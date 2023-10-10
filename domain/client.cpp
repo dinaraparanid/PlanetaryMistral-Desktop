@@ -7,6 +7,8 @@
 #include "client.h"
 #include "json.hpp"
 
+#include "data/system_status.h"
+
 const char* const HOST = "http://localhost:";
 const char* const PORT = "system";
 
@@ -29,8 +31,8 @@ namespace planetary_mistral {
             return stream;
         }
 
-        void get_system_status(client& stream) {
-            http::request<http::string_body> req; // http::verb::get, "system", "1.1"
+        std::optional<system_status> get_system_status(client& stream) {
+            http::request<http::string_body> req;
             req.version(11);
             req.method(http::verb::get);
             req.target("system");
@@ -43,10 +45,12 @@ namespace planetary_mistral {
             http::response<http::string_body> res;
             http::read(stream, buffer, res);
 
-            auto response = res.body();
+            auto status = res.result();
+            auto data = json::parse(res.body());
 
-            // TODO: Parse json to system_status
-            // auto data = json::parse(response);
+            return status == http::status::ok
+                    ? std::make_optional(system_status::from_json(data))
+                    : std::nullopt;
         }
     }
 }

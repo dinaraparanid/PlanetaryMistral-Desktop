@@ -3,13 +3,13 @@
 namespace planetary_mistral {
     namespace data {
         system_time::system_time(
-                const double delta_t,
-                const double gmt_shift,
+                const long double delta_t,
+                const long double gmt_shift,
                 const bool is_time_now,
-                const double jday,
+                const long double jday,
                 const QString& local,
                 const QString& time_zone,
-                const double timerate,
+                const long double timerate,
                 const QString& utc
         ) : delta_t(delta_t),
             gmt_shift(gmt_shift),
@@ -21,13 +21,13 @@ namespace planetary_mistral {
             utc(utc) {}
 
         system_time::system_time(
-                const double delta_t,
-                const double gmt_shift,
+                const long double delta_t,
+                const long double gmt_shift,
                 const bool is_time_now,
-                const double jday,
+                const long double jday,
                 QString&& local,
                 QString&& time_zone,
-                const double timerate,
+                const long double timerate,
                 QString&& utc
         ) : delta_t(delta_t),
             gmt_shift(gmt_shift),
@@ -39,13 +39,13 @@ namespace planetary_mistral {
             utc(utc) {}
 
         system_time::system_time(
-                const double delta_t,
-                const double gmt_shift,
+                const long double delta_t,
+                const long double gmt_shift,
                 const bool is_time_now,
-                const double jday,
+                const long double jday,
                 const std::u16string& local,
                 const std::u16string& time_zone,
-                const double timerate,
+                const long double timerate,
                 const std::u16string& utc
         ) : delta_t(delta_t),
             gmt_shift(gmt_shift),
