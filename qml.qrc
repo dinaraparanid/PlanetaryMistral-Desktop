@@ -23,7 +23,19 @@
         <file>res/images/nightvision.png</file>
         <file>res/images/planets.png</file>
         <file>res/images/satellite.png</file>
-        <file>MainMenuForm.ui.qml</file>
-        <file>MainForm.ui.qml</file>
+        <file>data/system_location.cpp</file>
+        <file>data/system_location.h</file>
+        <file>data/system_status.cpp</file>
+        <file>data/system_status.h</file>
+        <file>data/system_time.cpp</file>
+        <file>data/system_time.h</file>
+        <file>data/system_view.h</file>
+        <file>domain/client.cpp</file>
+        <file>domain/client.h</file>
+        <file>domain/json.hpp</file>
+        <file>deployment.pri</file>
+        <file>LICENSE</file>
+        <file>README.md</file>
+        <file>MainMenu.qml</file>
     </qresource>
 </RCC>

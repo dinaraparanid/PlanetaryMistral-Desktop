@@ -4,13 +4,15 @@
 #include <boost/asio/connect.hpp>
 #include <boost/asio/ip/tcp.hpp>
 
+#include <QDebug>
+
 #include "client.h"
 #include "json.hpp"
 
 #include "data/system_status.h"
 
-const char* const HOST = "http://localhost:";
-const char* const PORT = "system";
+const char* const HOST = "localhost";
+const char* const PORT = "8080";
 
 namespace beast = boost::beast;
 namespace http = beast::http;
@@ -35,7 +37,7 @@ namespace planetary_mistral {
             http::request<http::string_body> req;
             req.version(11);
             req.method(http::verb::get);
-            req.target("system");
+            req.target("/system/system_status");
             req.set(http::field::host, HOST);
             req.set(http::field::user_agent, BOOST_BEAST_VERSION_STRING);
 
@@ -45,8 +47,10 @@ namespace planetary_mistral {
             http::response<http::string_body> res;
             http::read(stream, buffer, res);
 
-            auto status = res.result();
-            auto data = json::parse(res.body());
+            const auto status = res.result();
+            auto body = res.body();
+            qDebug() << "API response:" << body.c_str();
+            auto data = json::parse(body);
 
             return status == http::status::ok
                     ? std::make_optional(system_status::from_json(data))

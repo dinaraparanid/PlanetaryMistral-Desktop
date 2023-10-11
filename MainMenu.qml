@@ -1,5 +1,6 @@
 import QtQuick 2.4
 import QtQuick.Layouts 1.3
+import com.paranid5.planetary_mistral 1.0
 
 ColumnLayout {
     spacing: 10
@@ -10,7 +11,7 @@ ColumnLayout {
 
         Text {
             id: position
-            text: "Земля"
+            text: system.planet
             textFormat: Text.RichText
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
             Layout.fillWidth: true
@@ -26,7 +27,7 @@ ColumnLayout {
 
         Text {
             id: time
-            text: "Время"
+            text: system.local
             Layout.fillWidth: true
             width: parent.width / 3
         }
@@ -219,6 +220,11 @@ ColumnLayout {
             clip: false
             visible: true
             fillMode: Image.Stretch
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: { Qt.quit(); }
+            }
         }
     }
 }
