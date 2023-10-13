@@ -8,7 +8,8 @@ SOURCES += main.cpp \
     domain/client.cpp \
     data/system_location.cpp \
     data/system_time.cpp \
-    data/system_view.cpp
+    data/system_view.cpp \
+    presentation/models/system_status_model.cpp
 
 RESOURCES += qml.qrc
 
@@ -25,6 +26,7 @@ HEADERS += \
     data/system_location.h \
     data/system_time.h \
     data/system_view.h \
+    presentation/models/system_status_model.h
 
 LIBS += \
     -lboost_system\

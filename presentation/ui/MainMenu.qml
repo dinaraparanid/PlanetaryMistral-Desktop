@@ -1,6 +1,5 @@
 import QtQuick 2.4
 import QtQuick.Layouts 1.3
-import com.paranid5.planetary_mistral 1.0
 
 ColumnLayout {
     spacing: 10
@@ -27,7 +26,7 @@ ColumnLayout {
 
         Text {
             id: time
-            text: system.local
+            text: system.local_time
             Layout.fillWidth: true
             width: parent.width / 3
         }

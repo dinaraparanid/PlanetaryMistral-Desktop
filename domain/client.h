@@ -14,8 +14,7 @@ namespace planetary_mistral {
     namespace domain {
         using client = beast::tcp_stream;
 
-        client make_client();
-
+        std::optional<client> make_client();
         std::optional<system_status> get_system_status(client& stream);
     }
 }

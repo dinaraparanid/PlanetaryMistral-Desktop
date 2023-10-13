@@ -23,14 +23,18 @@ using json = nlohmann::json;
 
 namespace planetary_mistral {
     namespace domain {
-        client make_client() {
-            net::io_context ioc;
-            tcp::resolver resolver(ioc);
-            beast::tcp_stream stream(ioc);
+        std::optional<client> make_client() {
+            try {
+                net::io_context ioc;
+                tcp::resolver resolver(ioc);
+                client stream(ioc);
 
-            const auto res = resolver.resolve(HOST, PORT);
-            stream.connect(res);
-            return stream;
+                const auto res = resolver.resolve(HOST, PORT);
+                stream.connect(res);
+                return std::optional<client>(std::move(stream));
+            } catch (const boost::wrapexcept<boost::system::system_error>& e) {
+                return std::optional<client>();
+            }
         }
 
         std::optional<system_status> get_system_status(client& stream) {
